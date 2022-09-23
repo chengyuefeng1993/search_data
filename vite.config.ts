@@ -14,5 +14,9 @@ export default defineConfig({
     Components({
       resolvers: [ElementPlusResolver()],
     }),
-  ]
+  ],
+  build:{
+    assetsDir:'static',
+    cssCodeSplit:false
+  }
 })

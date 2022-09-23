@@ -44,7 +44,6 @@ import StageData from "./labelcomp/StageData.vue";
 import TagData from "./labelcomp/TagData.vue";
 import SkipData from "./labelcomp/SkipData.vue";
 
-
 const props = defineProps(['index'])
 const className = `label-view${props.index}`
 const label = ref()
@@ -150,12 +149,6 @@ const getSkipData = async () => {
 
 const isEmpty = computed(() => {
   return !(Object.getOwnPropertyNames(data.value.stageList).length > 0 || data.value.tagList.length > 0 || data.value.skipList.length > 0)
-})
-
-onMounted(() => {
-  label.value.onfocus = () => {
-    console.log(label)
-  }
 })
 
 

@@ -45,6 +45,7 @@
         </div>
       </div>
     </transition>
+    <el-empty :image-size="300" v-show="isEmpty"/>
   </div>
   <el-divider style="margin: 0"/>
 </template>
@@ -100,6 +101,9 @@ const total = computed(() => {
   }
 })
 
+const isEmpty = computed(() => {
+  return !(data.value.reviewList.totalSize > 0)
+})
 
 const onSearch = () => {
   if (data.value.id != '') {

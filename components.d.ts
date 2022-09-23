@@ -30,7 +30,6 @@ declare module '@vue/runtime-core' {
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     LabelView: typeof import('./src/components/LabelView.vue')['default']
     NavBar: typeof import('./src/components/NavBar.vue')['default']
-    ReviewMain: typeof import('./src/components/reviewcomp/ReviewMain.vue')['default']
     ReviewView: typeof import('./src/components/ReviewView.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
