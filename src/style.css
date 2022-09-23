@@ -1,0 +1,16 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "LXGW WenKai GB Regular";
+  src: url("/public/LXGWWenKaiGB-Regular.woff");
+}
+
+
+
+.el-tabs__content{
+  padding: 0 !important;
+  width: 100% !important;
+}
