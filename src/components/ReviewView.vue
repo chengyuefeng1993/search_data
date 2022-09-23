@@ -100,11 +100,6 @@ const total = computed(() => {
   }
 })
 
-const filterIsShow = computed(() => {
-  if (data.value.reviewList.totalSize > 0){
-
-  }
-})
 
 const onSearch = () => {
   if (data.value.id != '') {
