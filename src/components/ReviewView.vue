@@ -31,6 +31,7 @@
         />
       </el-space>
     </div>
+    <el-divider style="margin: 0"/>
     <transition name=".el-fade-in">
       <div class="review-main" v-show="view != null" v-loading="data.isLoading">
         <el-space wrap :size="20" alignment="start">
