@@ -26,31 +26,48 @@ type Skip = {
 }
 
 type Review = {
-  allowNineRectGrid?: boolean
-  allowUserInputText?: number
-  data?: Array<DataType>
+  allowNineRectGrid: boolean
+  allowUserInputText: number
+  data: Array<DataType>
   dataAccessWay?: string
-  dataType?: string
-  fullscreenShortKey?: string
-  isSingleSelection?: boolean
-  pageNo?: number
-  pageSize?: number
-  selectionType?: number
-  singleDataCount?: number
-  totalSize?: number
+  dataType: string
+  fullscreenShortKey: string
+  isSingleSelection: boolean
+  pageNo: number
+  pageSize: number
+  selectionType: number
+  singleDataCount: number
+  totalSize: number
 }
 type DataType = {
-  answers?: Array<any>
-  caption?: string
-  dataId?: number
-  defaultCategory?: string
-  isAtlas?: boolean
-  itemVoList?: Array<any>
-  mediaEntityGroupList?: Array<any>
-  name?: string
-  reviewHistoryList?: Array<string>
-  reviewUser?: string
+  answers: Array<Answers>
+  caption: string
+  dataId: number
+  defaultCategory: string
+  isAtlas: boolean
+  itemVoList: Array<any>
+  mediaEntityGroupList: Array<any>
+  name: string
+  reviewHistoryList: Array<string>
+  reviewUser: string
 }
+
+type Answers = {
+  allowUserInputText: number
+  answerGroup: string
+  answerName: string
+  filedShowMap: object
+  hasDefaultOption: number
+  historyList: Array<string>
+  historyVoList: Array<string>
+  isSingleSelection: string
+  itemShowType: string
+  items: Array<object>
+  resultLevelType: string
+  reviewDisplay: Array<string>
+  selectedItemIds: Array<string>
+}
+
 type Filter = {
   label?:string
   value?:string

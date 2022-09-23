@@ -20,7 +20,7 @@
             style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949"
             active-text="开启过滤"
             inactive-text="关闭过滤"
-            v-show="data.reviewList.totalSize>0"
+            v-show="data.reviewList.totalSize > 0"
         />
         <el-switch
             v-model="data.imgIsShow"
@@ -33,17 +33,15 @@
     </div>
     <transition name=".el-fade-in">
       <div class="review-main" v-show="view != null" v-loading="data.isLoading">
-        <el-space wrap alignment="start">
-          <KeepAlive>
+        <el-space wrap :size="20" alignment="start">
             <component :is="view" v-for="item in reviewData" :item="item"
-                       :historyList="item.answers[0]?.historyList" :imgIsShow="data.imgIsShow"></component>
-          </KeepAlive>
+                       :historyList="item.answers[0].historyList" :imgIsShow="data.imgIsShow"></component>
         </el-space>
         <div class="pager">
           <el-pagination :total="total" layout="total,prev,pager,next,jumper,sizes"
                          v-model:current-page="data.pageNum" v-model:page-size="data.pageSize"
                          :page-sizes="pageSizes" background v-show="total !== 0"
-                         @current-change="pageNumChange" @size-change="pageSizeChange"/>
+                         @current-change="pageNumChange" @size-change="pageSizeChange" :hide-on-single-page="true"/>
         </div>
       </div>
     </transition>
@@ -51,7 +49,7 @@
   <el-divider style="margin: 0"/>
 </template>
 <script setup lang="ts">
-import {computed, onMounted, ref} from "vue";
+import { computed, onMounted, ref} from "vue";
 import dayjs from "dayjs";
 import {Review} from "../../stores/types";
 import VideoView from './reviewcomp/VideoView.vue'
@@ -102,11 +100,10 @@ const total = computed(() => {
   }
 })
 
-const timeStart = computed(() => {
-  return dayjs(data.value.time[0]).valueOf()
-})
-const timeStop = computed(() => {
-  return dayjs(data.value.time[1]).valueOf()
+const filterIsShow = computed(() => {
+  if (data.value.reviewList.totalSize > 0){
+
+  }
 })
 
 const onSearch = () => {
@@ -138,7 +135,7 @@ const getReviewData = async () => {
     if (r.data.code == 200) {
       data.value.reviewList = r.data.result
     } else {
-      data.value.reviewList = {}
+      data.value.reviewList = {} as Review
     }
     data.value.isLoading = false
   })
@@ -229,6 +226,9 @@ onMounted(() => {
 </script>
 <style scoped>
 .review-bar {
+  padding: 10px;
+}
+.review-main{
   padding: 10px;
 }
 
