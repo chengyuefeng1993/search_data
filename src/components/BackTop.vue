@@ -31,7 +31,7 @@ onMounted(() => {
 <style scoped>
 .back-to-top {
   position: fixed;
-  width: 50px;
+  width: 40px;
   height: 50px;
   right: 10px;
   bottom: 30px;
