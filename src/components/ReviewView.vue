@@ -86,7 +86,7 @@ const view = computed(() => {
     return VideoView
   }
 })
-const pageSizes = [10, 30, 50, 100, 200, 500]
+const pageSizes = [10, 30, 50, 100, 200, 500,1000]
 const reviewData = computed(() => {
   if (data.value.isFilter) {
     return data.value.reviewList.data?.filter((a) => a?.reviewUser == null)
