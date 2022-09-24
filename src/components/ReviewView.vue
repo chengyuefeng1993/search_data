@@ -33,22 +33,23 @@
     </div>
     <el-divider style="margin: 0"/>
     <transition name=".el-fade-in">
-      <div class="review-main" v-show="view != null" v-loading="data.isLoading">
-        <el-space wrap :size="20" alignment="start">
-          <component :is="view" v-for="item in reviewData" :item="item"
-                     :historyList="item.answers[0].historyList" :imgIsShow="data.imgIsShow"></component>
-        </el-space>
-        <div class="pager">
-          <el-pagination :total="total" layout="total,prev,pager,next,jumper,sizes"
-                         v-model:current-page="data.pageNum" v-model:page-size="data.pageSize"
-                         :page-sizes="pageSizes" background v-show="total !== 0"
-                         @current-change="pageNumChange" @size-change="pageSizeChange" :hide-on-single-page="true"/>
+      <div class="review-main" v-loading="data.isLoading">
+        <div v-show="view != null">
+          <el-space wrap :size="20" alignment="start">
+            <component :is="view" v-for="item in reviewData" :item="item"
+                       :historyList="item.answers[0].historyList" :imgIsShow="data.imgIsShow"></component>
+          </el-space>
+          <div class="pager">
+            <el-pagination :total="total" layout="total,prev,pager,next,jumper,sizes"
+                           v-model:current-page="data.pageNum" v-model:page-size="data.pageSize"
+                           :page-sizes="pageSizes" background v-show="total !== 0"
+                           @current-change="pageNumChange" @size-change="pageSizeChange" :hide-on-single-page="true"/>
+          </div>
         </div>
-        <el-empty :image-size="300" v-show="isEmpty"/>
+        <el-empty :image-size="500" v-show="isEmpty"/>
       </div>
     </transition>
   </div>
-  <el-divider style="margin: 0"/>
 </template>
 <script setup lang="ts">
 import {computed, onMounted, ref} from "vue";
@@ -86,7 +87,7 @@ const view = computed(() => {
     return VideoView
   }
 })
-const pageSizes = [10, 30, 50, 100, 200, 500,1000]
+const pageSizes = [10, 30, 50, 100, 200, 500, 1000]
 const reviewData = computed(() => {
   if (data.value.isFilter) {
     return data.value.reviewList.data?.filter((a) => a?.reviewUser == null)

@@ -21,16 +21,18 @@
     </div>
     <el-divider style="margin: 0"/>
     <div class="label-view" v-loading="isLoading">
-      <StageData :stage-list="data.stageList"/>
-      <el-row :gutter="10" style="margin-top: 10px">
-        <el-col :xs="24" :sm="16">
-          <TagData :tagList="data.tagList" :labelId="data.labelId" :timeStart="timeStart" :timeStop="timeStop"/>
-        </el-col>
-        <el-col :xs="24" :sm="8">
-          <SkipData :skipList="data.skipList" :skipNum="data.skipNum"/>
-        </el-col>
-      </el-row>
-      <el-empty :image-size="300" v-show="isEmpty"/>
+      <div v-show="isShow">
+        <StageData :stage-list="data.stageList"/>
+        <el-row :gutter="10" style="margin-top: 10px">
+          <el-col :xs="24" :sm="16">
+            <TagData :tagList="data.tagList" :labelId="data.labelId" :timeStart="timeStart" :timeStop="timeStop"/>
+          </el-col>
+          <el-col :xs="24" :sm="8">
+            <SkipData :skipList="data.skipList" :skipNum="data.skipNum"/>
+          </el-col>
+        </el-row>
+      </div>
+      <el-empty :image-size="500" v-show="isEmpty"/>
     </div>
   </div>
 </template>
@@ -66,6 +68,10 @@ const timeStart = computed(() => {
 })
 const timeStop = computed(() => {
   return dayjs(data.value.labelTime[1]).valueOf()
+})
+
+const isShow = computed(() => {
+  return Object.getOwnPropertyNames(data.value.stageList).length > 0 || data.value.tagList.length > 0 || data.value.skipList.length > 0;
 })
 
 const isLoading = computed(() => {
