@@ -35,8 +35,8 @@
     <transition name=".el-fade-in">
       <div class="review-main" v-show="view != null" v-loading="data.isLoading">
         <el-space wrap :size="20" alignment="start">
-            <component :is="view" v-for="item in reviewData" :item="item"
-                       :historyList="item.answers[0].historyList" :imgIsShow="data.imgIsShow"></component>
+          <component :is="view" v-for="item in reviewData" :item="item"
+                     :historyList="item.answers[0].historyList" :imgIsShow="data.imgIsShow"></component>
         </el-space>
         <div class="pager">
           <el-pagination :total="total" layout="total,prev,pager,next,jumper,sizes"
@@ -44,14 +44,14 @@
                          :page-sizes="pageSizes" background v-show="total !== 0"
                          @current-change="pageNumChange" @size-change="pageSizeChange" :hide-on-single-page="true"/>
         </div>
+        <el-empty :image-size="300" v-show="isEmpty"/>
       </div>
     </transition>
-    <el-empty :image-size="300" v-show="isEmpty"/>
   </div>
   <el-divider style="margin: 0"/>
 </template>
 <script setup lang="ts">
-import { computed, onMounted, ref} from "vue";
+import {computed, onMounted, ref} from "vue";
 import dayjs from "dayjs";
 import {Review} from "../../stores/types";
 import VideoView from './reviewcomp/VideoView.vue'
@@ -228,7 +228,8 @@ onMounted(() => {
 .review-bar {
   padding: 10px;
 }
-.review-main{
+
+.review-main {
   padding: 10px;
 }
 
