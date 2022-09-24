@@ -98,7 +98,7 @@ const onSearch = () => {
 }
 
 const getStageData = async () => {
-  await axios.get('https://stagedata-stagedata-eaugarneuh.cn-beijing.fcapp.run', {
+  await axios.get('https://api.chengyuefeng.fun/stagedata', {
     params: {
       sourceid: data.value.labelId
     }
@@ -113,7 +113,7 @@ const getStageData = async () => {
 }
 
 const getTagData = async () => {
-  await axios.get('https://tagdata-stagedata-uouqjvmbbx.cn-beijing.fcapp.run', {
+  await axios.get('https://api.chengyuefeng.fun/tagdata', {
     params: {
       sourceid: data.value.labelId,
       stagename: data.value.stageName,
@@ -132,7 +132,7 @@ const getTagData = async () => {
 }
 
 const getSkipData = async () => {
-  await axios.get('https://skipdata-stagedata-pvbxlvkfpc.cn-beijing.fcapp.run', {
+  await axios.get('https://api.chengyuefeng.fun/skipdata', {
     params: {
       sourceid: data.value.labelId,
       stagename: data.value.stageName

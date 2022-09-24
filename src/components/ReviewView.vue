@@ -120,7 +120,7 @@ const onSearch = () => {
 }
 
 const getReviewData = async () => {
-  await axios.get('https://reviewdata-stagedata-klpwugxcyu.cn-beijing.fcapp.run', {
+  await axios.get('https://api.chengyuefeng.fun/review', {
     params: {
       sourceid: data.value.id,
       stagename: data.value.stageName,
