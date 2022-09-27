@@ -1,6 +1,8 @@
 <template>
   <div class="search">
-    <NavBar/>
+    <el-affix :offset="0">
+      <NavBar/>
+    </el-affix>
     <RouterView v-slot="{Component}">
       <KeepAlive>
         <component :is="Component"/>

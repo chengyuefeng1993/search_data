@@ -1,6 +1,6 @@
 <template>
   <div class="navbar">
-    <el-menu mode="horizontal" router :default-active="mainStore.routeUrl">
+    <el-menu mode="horizontal" router :default-active="mainStore.routeUrl" background-color="#545c64" text-color="#fff">
       <el-menu-item index="home" route="/">Home</el-menu-item>
       <el-menu-item index="label" route="/search/label">数据</el-menu-item>
       <el-menu-item index="review" route="/search/review">回查</el-menu-item>
