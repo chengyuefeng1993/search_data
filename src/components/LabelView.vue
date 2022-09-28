@@ -14,7 +14,7 @@
         <el-input v-model="data.labelId" clearable style="width: 150px;" @keydown.enter="onSearch" placeholder="包ID"
                   :maxlength="5">
           <template #append>
-            <el-button @click="onSearch">查询</el-button>
+            <el-button @click="onSearch" :loading="isLoading">查询</el-button>
           </template>
         </el-input>
       </el-space>

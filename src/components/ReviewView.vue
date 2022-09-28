@@ -12,7 +12,7 @@
         <el-input v-model="data.id" :maxlength="5" style="width: 150px" clearable
                   @keydown.enter="onSearch" placeholder="包ID">
           <template #append>
-            <el-button @click="onSearch">查询</el-button>
+            <el-button @click="onSearch" :loading="data.isLoading">查询</el-button>
           </template>
         </el-input>
         <el-switch
