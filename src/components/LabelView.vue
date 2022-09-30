@@ -1,5 +1,5 @@
 <template>
-  <div :class="className" ref="label">
+  <div class="label-main" ref="label" tabindex="-1" @focus="atFocus">
     <div class="label-bar">
       <el-space wrap>
         <el-date-picker v-model="data.labelTime" type="datetimerange" style="width: 350px" :shortcuts="shortcuts"/>
@@ -49,6 +49,7 @@ import SkipData from "./labelcomp/SkipData.vue";
 const props = defineProps(['index'])
 const className = `label-view${props.index}`
 const label = ref()
+
 
 let data = ref({
   labelId: '' as string,
@@ -161,6 +162,12 @@ const isEmpty = computed(() => {
   return !(Object.getOwnPropertyNames(data.value.stageList).length > 0 || data.value.tagList.length > 0 || data.value.skipList.length > 0)
 })
 
+const atFocus = () => {
+  if (Object.getOwnPropertyNames(data.value.stageList).length > 0){
+    onSearch()
+  }
+}
+
 
 const options = [
   {
@@ -223,6 +230,10 @@ const shortcuts = [
 
 </script>
 <style scoped>
+.label-main {
+  outline: none;
+}
+
 .label-bar {
   padding: 10px;
 }

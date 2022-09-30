@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
@@ -9,8 +9,22 @@
 }
 
 
-
-.el-tabs__content{
+.el-tabs__content {
   padding: 0 !important;
   width: 100% !important;
+}
+
+
+.caption a {
+  color: #409EFF;
+  text-decoration-line: none;
+  font-size: 14px;
+  font-family: "LXGW WenKai GB Regular", fangsong;
+}
+
+.caption a:hover {
+  color:  #3375b9;
+}
+.caption a:active{
+  color: #409EFF;
 }

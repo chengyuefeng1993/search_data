@@ -9,6 +9,11 @@
         </el-select>
         <el-input placeholder="用户名" v-model="data.userName" style="width: 160px"/>
         <el-input placeholder="dataId" v-model="data.dataId" style="width: 90px" clearable/>
+        <el-input placeholder="页数" v-model="data.pageNum" style="width: 130px" :maxlength="5" clearable>
+          <template #append>
+            <span>页</span>
+          </template>
+        </el-input>
         <el-input v-model="data.id" :maxlength="5" style="width: 150px" clearable
                   @keydown.enter="onSearch" placeholder="包ID">
           <template #append>
