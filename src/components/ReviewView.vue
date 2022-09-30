@@ -9,7 +9,8 @@
         </el-select>
         <el-input placeholder="用户名" v-model="data.userName" style="width: 160px"/>
         <el-input placeholder="dataId" v-model="data.dataId" style="width: 90px" clearable/>
-        <el-input placeholder="页数" v-model="data.pageNum" style="width: 130px" :maxlength="5" clearable>
+        <el-input placeholder="页数" v-model.number="data.pageNum" style="width: 150px" :maxlength="4" clearable
+                  type="number" :min="1">
           <template #append>
             <span>页</span>
           </template>
@@ -114,6 +115,7 @@ const isEmpty = computed(() => {
 
 const onSearch = () => {
   if (data.value.id != '') {
+
     data.value.isLoading = true
     getReviewData()
   } else {
