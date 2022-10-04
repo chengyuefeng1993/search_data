@@ -3,7 +3,7 @@
     <div class="review-bar">
       <el-space wrap>
         <el-date-picker v-model="data.time" type="datetimerange" :shortcuts="shortcuts"
-                        style="width: 350px"/>
+                        style="width: 360px"/>
         <el-select v-model="data.stageName" style="width: 75px">
           <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"/>
         </el-select>

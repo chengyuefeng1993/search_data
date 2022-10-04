@@ -2,7 +2,7 @@
   <div class="label-main" ref="label">
     <div class="label-bar">
       <el-space wrap>
-        <el-date-picker v-model="data.labelTime" type="datetimerange" style="width: 350px" :shortcuts="shortcuts"/>
+        <el-date-picker v-model="data.labelTime" type="datetimerange" style="width: 360px" :shortcuts="shortcuts"/>
         <el-select v-model="data.stageName" style="width: 80px">
           <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"/>
         </el-select>
