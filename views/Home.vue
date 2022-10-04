@@ -19,10 +19,13 @@ const toRoute = (url:string) => {
   display: flex;
   width: 100vw;
   height: 100vh;
-  background-image: url("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2F202076ae02fc86ce5506e9ce9c5e497616e31a47.jpg&refer=http%3A%2F%2Fi0.hdslb.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1663386701&t=a658692b7120797aaaccdee09993f854");
+  background-image: url(https://tuapi.eees.cc/api.php?category=biying&type=302&px=pc);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   justify-content: center;
+  /*background-repeat:repeat;*/
+  /*background-attachment:fixed;*/
+  /*background-position:50% 50%;*/
 }
 
 .change {

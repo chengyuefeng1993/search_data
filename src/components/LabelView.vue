@@ -1,5 +1,5 @@
 <template>
-  <div class="label-main" ref="label" tabindex="-1" @focus="atFocus">
+  <div class="label-main" ref="label">
     <div class="label-bar">
       <el-space wrap>
         <el-date-picker v-model="data.labelTime" type="datetimerange" style="width: 350px" :shortcuts="shortcuts"/>
@@ -162,11 +162,11 @@ const isEmpty = computed(() => {
   return !(Object.getOwnPropertyNames(data.value.stageList).length > 0 || data.value.tagList.length > 0 || data.value.skipList.length > 0)
 })
 
-const atFocus = () => {
-  if (Object.getOwnPropertyNames(data.value.stageList).length > 0){
-    onSearch()
-  }
-}
+// const atFocus = () => {
+//   if (Object.getOwnPropertyNames(data.value.stageList).length > 0){
+//     onSearch()
+//   }
+// }
 
 
 const options = [

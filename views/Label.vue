@@ -14,6 +14,7 @@
             :label="item.title"
             :name="item.name"
             style="padding: 0"
+            @focus="atFocus"
         >
           <LabelView ref="Label" :index="item.num"/>
         </el-tab-pane>
@@ -38,6 +39,10 @@ const editableTabs = ref([
     num: tabIndex
   }
 ])
+
+const atFocus = () => {
+  console.log(111)
+}
 
 const handleTabsEdit = (targetName: string, action: 'remove' | 'add') => {
   if (action === 'add') {
