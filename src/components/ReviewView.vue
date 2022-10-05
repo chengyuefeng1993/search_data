@@ -127,7 +127,7 @@ const onSearch = () => {
   }
 }
 
-const reviewUrl = 'https://review-search-bhkbqhmaps.cn-beijing.fcapp.run'
+// const reviewUrl = 'https://review-search-bhkbqhmaps.cn-beijing.fcapp.run'
 
 const getReviewData = async () => {
   await axios.get('https://api.chengyuefeng.fun/review', {

@@ -104,9 +104,9 @@ const onSearch = () => {
   }
 }
 
-const stageUrl = 'https://stagedata-search-tvqfysxaho.cn-beijing.fcapp.run'
-const tagUrl = 'https://tagdata-search-fecerpresb.cn-beijing.fcapp.run'
-const skipUrl = 'https://skipdata-search-iqcsnkcpfh.cn-beijing.fcapp.run'
+// const stageUrl = 'https://stagedata-search-tvqfysxaho.cn-beijing.fcapp.run'
+// const tagUrl = 'https://tagdata-search-fecerpresb.cn-beijing.fcapp.run'
+// const skipUrl = 'https://skipdata-search-iqcsnkcpfh.cn-beijing.fcapp.run'
 
 const getStageData = async () => {
   await axios.get('https://api.chengyuefeng.fun/stagedata', {
