@@ -67,6 +67,7 @@ import {useMainStore} from "../../stores";
 import {ElMessage} from "element-plus";
 import axios from "axios";
 
+axios.defaults.timeout = 100000
 const mainStore = useMainStore()
 
 let data = ref({
