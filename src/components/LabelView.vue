@@ -104,12 +104,12 @@ const onSearch = () => {
   }
 }
 
-// const stageUrl = 'https://stagedata-search-tvqfysxaho.cn-beijing.fcapp.run'
-// const tagUrl = 'https://tagdata-search-fecerpresb.cn-beijing.fcapp.run'
-// const skipUrl = 'https://skipdata-search-iqcsnkcpfh.cn-beijing.fcapp.run'
+const stageUrl = 'https://stagedata-search-tvqfysxaho.cn-beijing.fcapp.run'
+const tagUrl = 'https://tagdata-search-fecerpresb.cn-beijing.fcapp.run'
+const skipUrl = 'https://skipdata-search-iqcsnkcpfh.cn-beijing.fcapp.run'
 
 const getStageData = async () => {
-  await axios.get('https://api.chengyuefeng.fun/stagedata', {
+  await axios.get(stageUrl, {
     params: {
       sourceid: data.value.labelId
     }
@@ -124,7 +124,7 @@ const getStageData = async () => {
 }
 
 const getTagData = async () => {
-  await axios.get('https://api.chengyuefeng.fun/tagdata', {
+  await axios.get(tagUrl, {
     params: {
       sourceid: data.value.labelId,
       stagename: data.value.stageName,
@@ -143,7 +143,7 @@ const getTagData = async () => {
 }
 
 const getSkipData = async () => {
-  await axios.get('https://api.chengyuefeng.fun/skipdata', {
+  await axios.get(skipUrl, {
     params: {
       sourceid: data.value.labelId,
       stagename: data.value.stageName
