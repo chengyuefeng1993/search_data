@@ -22,18 +22,18 @@
           </template>
         </el-input>
         <el-switch
-            v-model="data.isFilter"
-            style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949"
-            active-text="开启过滤"
-            inactive-text="关闭过滤"
-            v-show="data.reviewList.totalSize > 0"
+          v-model="data.isFilter"
+          style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949"
+          active-text="开启过滤"
+          inactive-text="关闭过滤"
+          v-show="data.reviewList.totalSize > 0"
         />
         <el-switch
-            v-model="data.imgIsShow"
-            style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949"
-            active-text="显示图片"
-            inactive-text="隐藏图片"
-            v-show="data.reviewList.dataType === 'video'"
+          v-model="data.imgIsShow"
+          style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949"
+          active-text="显示图片"
+          inactive-text="隐藏图片"
+          v-show="data.reviewList.dataType === 'video'"
         />
       </el-space>
     </div>
@@ -64,10 +64,20 @@ import {Review} from "../../stores/types";
 import VideoView from './reviewcomp/VideoView.vue'
 import TextView from './reviewcomp/TextView.vue'
 import {useMainStore} from "../../stores";
-import {ElMessage} from "element-plus";
-import axios from "axios";
+import {ElMessage, ElNotification} from "element-plus";
+import axios, {Canceler} from "axios";
 
 axios.defaults.timeout = 100000
+axios.interceptors.response.use(resp => {
+  return resp
+}, error => {
+  if (error.message.includes('timeout')) {
+    error.message = 'timeOutError'
+    console.log('请求超时！' + new Date())
+    return Promise.reject(error)
+  }
+  return Promise.reject(error)
+})
 const mainStore = useMainStore()
 
 let data = ref({
@@ -149,6 +159,16 @@ const getReviewData = async () => {
       data.value.reviewList = {} as Review
     }
     data.value.isLoading = false
+  }).catch(err => {
+    if (err.message == 'timeOutError') {
+      ElNotification({
+        title: '请求超时！',
+        message: '数据请求超时，请重新发起请求！',
+        duration: 0,
+        type: 'error'
+      })
+      data.value.isLoading = false
+    }
   })
 }
 
