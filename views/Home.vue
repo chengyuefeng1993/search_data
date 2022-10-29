@@ -19,7 +19,7 @@ const toRoute = (url:string) => {
   display: flex;
   width: 100vw;
   height: 100vh;
-  background-image: url(https://tuapi.eees.cc/api.php?category=biying&type=302&px=pc);
+  background-image: url(https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   justify-content: center;
