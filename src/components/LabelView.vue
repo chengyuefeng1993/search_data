@@ -37,9 +37,9 @@
   </div>
 </template>
 <script setup lang="ts">
-import {computed, onMounted, ref} from 'vue'
+import {computed, ref} from 'vue'
 import dayjs from "dayjs";
-import {ElMessage} from "element-plus";
+import {ElMessage, ElNotification} from "element-plus";
 import {Skip, Stage, Tag} from "../../stores/types";
 import axios from "axios";
 import StageData from "./labelcomp/StageData.vue";
@@ -120,6 +120,16 @@ const getStageData = async () => {
       data.value.stageList = {}
     }
     data.value.isLoadingNum += 1
+  }).catch(err => {
+    if (err.message == 'timeOutError') {
+      ElNotification({
+        title: '请求超时！',
+        message: '数据请求超时，请重新发起请求！',
+        duration: 0,
+        type: 'error'
+      })
+      data.value.isLoadingNum = 4
+    }
   })
 }
 
@@ -139,6 +149,16 @@ const getTagData = async () => {
       data.value.tagList = []
     }
     data.value.isLoadingNum += 1
+  }).catch(err => {
+    if (err.message == 'timeOutError') {
+      ElNotification({
+        title: '请求超时！',
+        message: '数据请求超时，请重新发起请求！',
+        duration: 0,
+        type: 'error'
+      })
+      data.value.isLoadingNum = 4
+    }
   })
 }
 
@@ -155,6 +175,16 @@ const getSkipData = async () => {
       data.value.skipList = []
     }
     data.value.isLoadingNum += 1
+  }).catch(err => {
+    if (err.message == 'timeOutError') {
+      ElNotification({
+        title: '请求超时！',
+        message: '数据请求超时，请重新发起请求！',
+        duration: 0,
+        type: 'error'
+      })
+      data.value.isLoadingNum = 4
+    }
   })
 }
 
