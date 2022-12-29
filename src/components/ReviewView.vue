@@ -67,7 +67,7 @@ import {useMainStore} from "../../stores";
 import {ElMessage, ElNotification} from "element-plus";
 import axios, {Canceler} from "axios";
 
-axios.defaults.timeout = 100000
+axios.defaults.timeout = 200000
 axios.interceptors.response.use(resp => {
   return resp
 }, error => {
