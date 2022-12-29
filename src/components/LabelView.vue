@@ -66,7 +66,6 @@ import SkipData from "./labelcomp/SkipData.vue";
 const props = defineProps(['index'])
 const className = `label-view${props.index}`
 const label = ref()
-axios.defaults.timeout = 100000
 
 let data = ref({
   labelId: '' as string,
