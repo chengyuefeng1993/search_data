@@ -3,6 +3,23 @@
     <div class="label-bar">
       <el-space wrap>
         <el-date-picker v-model="data.labelTime" type="datetimerange" style="width: 360px" :shortcuts="shortcuts"/>
+        <el-button-group>
+          <el-button @click="backDate">
+            <el-icon>
+              <ArrowLeftBold/>
+            </el-icon>
+          </el-button>
+          <el-button @click="today">
+            <el-icon>
+              <View/>
+            </el-icon>
+          </el-button>
+          <el-button @click="fowardDate">
+            <el-icon>
+              <ArrowRightBold/>
+            </el-icon>
+          </el-button>
+        </el-button-group>
         <el-select v-model="data.stageName" style="width: 80px">
           <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"/>
         </el-select>
@@ -210,34 +227,53 @@ const options = [
   }
 ]
 
+const backDate = () => {
+  data.value.labelTime = [
+    dayjs(data.value.labelTime[0]).subtract(1, 'day').toDate(),
+    dayjs(data.value.labelTime[1]).subtract(1, 'day').toDate()
+  ]
+}
+const today = () => {
+  data.value.labelTime = [
+    dayjs().startOf('day').toDate(),
+    dayjs().add(1, 'day').startOf('day').toDate()
+  ]
+}
+const fowardDate = () => {
+  data.value.labelTime = [
+    dayjs(data.value.labelTime[0]).add(1, 'day').toDate(),
+    dayjs(data.value.labelTime[1]).add(1, 'day').toDate()
+  ]
+}
+
 const shortcuts = [
-  {
-    text: '前一天',
-    onClick: () => {
-      data.value.labelTime = [
-        dayjs(data.value.labelTime[0]).subtract(1, 'day').toDate(),
-        dayjs(data.value.labelTime[1]).subtract(1, 'day').toDate()
-      ]
-    }
-  },
-  {
-    text: '今天',
-    onClick: () => {
-      data.value.labelTime = [
-        dayjs().startOf('day').toDate(),
-        dayjs().add(1, 'day').startOf('day').toDate()
-      ]
-    }
-  },
-  {
-    text: '后一天',
-    onClick: () => {
-      data.value.labelTime = [
-        dayjs(data.value.labelTime[0]).add(1, 'day').toDate(),
-        dayjs(data.value.labelTime[1]).add(1, 'day').toDate()
-      ]
-    }
-  },
+  // {
+  //   text: '前一天',
+  //   onClick: () => {
+  //     data.value.labelTime = [
+  //       dayjs(data.value.labelTime[0]).subtract(1, 'day').toDate(),
+  //       dayjs(data.value.labelTime[1]).subtract(1, 'day').toDate()
+  //     ]
+  //   }
+  // },
+  // {
+  //   text: '今天',
+  //   onClick: () => {
+  //     data.value.labelTime = [
+  //       dayjs().startOf('day').toDate(),
+  //       dayjs().add(1, 'day').startOf('day').toDate()
+  //     ]
+  //   }
+  // },
+  // {
+  //   text: '后一天',
+  //   onClick: () => {
+  //     data.value.labelTime = [
+  //       dayjs(data.value.labelTime[0]).add(1, 'day').toDate(),
+  //       dayjs(data.value.labelTime[1]).add(1, 'day').toDate()
+  //     ]
+  //   }
+  // },
   {
     text: '半个月',
     onClick: () => {
